@@ -13,7 +13,7 @@ Kind.destroy_all
 c = Category.create!(name: 'Progresivo')
 k = Kind.create!(name: 'Musica')
 
-20.times do |i|
-  Bookmark.create!(kind_id:k.id, category_id:c.id, name: 'Yes', url: 'https://es.wikipedia.org/wiki/Yes_(banda)' )
+7.times do |i|
+  Bookmark.create!(kind_id:k.id, category_id:c.id, title: 'Yes', url: 'https://es.wikipedia.org/wiki/Yes_(banda)' )
   puts "++++++++++++++++++++++++++++++++++++++++++++++++"
 end
