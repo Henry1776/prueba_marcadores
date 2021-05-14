@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bookmarks</h1>
-
+<h1>Marcadores</h1>
+<%= pie_chart Bookmark.group(:kinds).count %>
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Url</th>
+      <th>Titulo</th>
+      <th>Direccción Url</th>
+      <th>Clase</th>
+      <th>Categoria</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,8 @@
       <tr>
         <td><%= bookmark.title %></td>
         <td><%= bookmark.url %></td>
+        <td><%= bookmark.kind_id %></td>
+        <td><%= bookmark.category_id %></td>
         <td><%= link_to 'Show', bookmark %></td>
         <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
         <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +31,5 @@
 <br>
 
 <%= link_to 'New Bookmark', new_bookmark_path %>
+<%= link_to 'Index', categories_path %>
+<%= link_to 'New Category', new_category_path %>
