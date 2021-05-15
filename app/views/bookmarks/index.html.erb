@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Marcadores</h1>
-<%= pie_chart Bookmark.group(:kinds).count %>
-<table>
+<div class="row">
+  <div class="col">
+  <%= render "form", bookmark: @bookmark %>
+  </div>
+  <div class="col">
+    <%= pie_chart Bookmark.group(:kinds).count %>
+  </div>
+</div>
+<table id="mytable">
   <thead>
     <tr>
       <th>Titulo</th>
@@ -14,21 +21,11 @@
   </thead>
 
   <tbody>
-    <% @bookmarks.each do |bookmark| %>
-      <tr>
-        <td><%= bookmark.title %></td>
-        <td><%= bookmark.url %></td>
-        <td><%= bookmark.kind_id %></td>
-        <td><%= bookmark.category_id %></td>
-        <td><%= link_to 'Show', bookmark %></td>
-        <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
-        <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <%= render @bookmarks %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Bookmark', new_bookmark_path %>
-<%= link_to 'Index', categories_path %>
+<%= link_to 'Nuevo Marcador', new_bookmark_path %>
+<%= link_to 'Categorias', categories_path %>
