@@ -102,7 +102,7 @@ airlines.each do |k, v|
 end
 
 category = Category.create!(name: 'Place')
-kind = Kind.create!(name: 'Tourist')
+kind = Kind.create!(name: 'Tourism')
 
 tourism.each do |k, v|
   Bookmark.create!(kind_id: kind.id, category_id: category.id, title: k.to_s, url: v )
