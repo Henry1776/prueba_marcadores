@@ -6,7 +6,7 @@
   <%= render "form", bookmark: @bookmark %>
   </div>
   <div class="col">
-    <%= pie_chart Bookmark.group(:kinds).count %>
+    <%= pie_chart Bookmark.group(:kind).count %>
   </div>
 </div>
 <table id="mytable">
@@ -28,4 +28,5 @@
 <br>
 
 <%= link_to 'Nuevo Marcador', new_bookmark_path %>
-<%= link_to 'Categorias', categories_path %>
+
+<%= link_to 'Nueva Categoria', new_category_path %>
